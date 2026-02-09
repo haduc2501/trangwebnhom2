@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Các Phương Pháp Học Tập Hiệu Quả - Nhóm 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Main Content Styles */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .intro {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #3498db;
+        }
+        
+        .intro h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .intro p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .method-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .method-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .method-header {
+            padding: 20px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .method-1 .method-header { background-color: #e74c3c; }
+        .method-2 .method-header { background-color: #3498db; }
+        .method-3 .method-header { background-color: #2ecc71; }
+        .method-4 .method-header { background-color: #f39c12; }
+        .method-5 .method-header { background-color: #9b59b6; }
+        .method-6 .method-header { background-color: #1abc9c; }
+        
+        .method-content {
+            padding: 25px;
+        }
+        
+        .method-content h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .method-content ul, .method-content ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .method-content li {
+            margin-bottom: 8px;
+        }
+        
+        .conclusion {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid #9b59b6;
+        }
+        
+        .conclusion h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-heart {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: #e74c3c;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .member {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .member:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .footer-bottom {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .method-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-members {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Phần 1: Header -->
+    <header>
+        <h1><i class="fas fa-graduation-cap"></i> WEBSITE NHÓM 2</h1>
+        <p>Các Phương Pháp Học Tập Hiệu Quả: Bí Quyết Chinh Phục Tri Thức</p>
+    </header>
+    
+    <!-- Phần 2: Nội dung chính -->
+    <main>
+        <section class="intro">
+            <h2>Giới thiệu</h2>
+            <p>Trong thế giới hiện đại, việc học không còn là hành trình tiếp thu thụ động mà đã trở thành một nghệ thuật chủ động. Hiệu quả học tập không đo bằng số giờ ngồi vào bàn, mà bằng mức độ hiểu sâu, ghi nhớ lâu và khả năng ứng dụng kiến thức.</p>
+            <p>Dưới đây là sáu phương pháp học tập khoa học và hiệu quả, được chứng minh bởi các nghiên cứu về tâm lý học giáo dục và khoa học thần kinh, có thể cách mạng hóa cách bạn tiếp cận tri thức.</p>
+        </section>
+        
+        <div class="method-container">
+            <!-- Phương pháp 1 -->
+            <article class="method-card method-1">
+                <div class="method-header">
+                    <i class="fas fa-clock"></i> 1. Kỹ Thuật Pomodoro
+                </div>
+                <div class="method-content">
+                    <h3>Chinh Phục Thời Gian</h3>
+                    <p>Phương pháp Pomodoro, được phát triển bởi Francesco Cirillo vào cuối những năm 1980, dựa trên nguyên lý làm việc với những khoảng thời gian tập trung cao độ.</p>
+                    <h4>Cách thực hiện:</h4>
+                    <ul>
+                        <li>Chọn một nhiệm vụ cần hoàn thành.</li>
+                        <li>Đặt báo thức cho 25 phút và tập trung hoàn toàn vào nhiệm vụ.</li>
+                        <li>Khi hết 25 phút, nghỉ ngắn 5 phút.</li>
+                        <li>Sau mỗi 4 "Pomodoro", hãy nghỉ dài hơn từ 15-30 phút.</li>
+                    </ul>
+                    <h4>Lợi ích:</h4>
+                    <ul>
+                        <li>Chống trì hoãn: Biến công việc lớn thành các phiên ngắn, dễ bắt đầu.</li>
+                        <li>Duy trì sự tập trung: Tránh kiệt sức tinh thần bằng cách nghỉ ngơi đều đặn.</li>
+                        <li>Nâng cao nhận thức về thời gian: Giúp bạn ước lượng chính xác hơn thời gian cần cho từng công việc.</li>
+                    </ul>
+                </div>
+            </article>
+            
+            <!-- Phương pháp 2 -->
+            <article class="method-card method-2">
+                <div class="method-header">
+                    <i class="fas fa-chalkboard-teacher"></i> 2. Phương Pháp Feynman
+                </div>
+                <div class="method-content">
+                    <h3>Học Thật Sâu Bằng Cách Giảng Dạy</h3>
+                    <p>Đặt tên theo nhà vật lý đoạt giải Nobel Richard Feynman, phương pháp này dựa trên triết lý: "Nếu bạn không thể giải thích một điều gì đó đơn giản, bạn chưa thực sự hiểu nó."</p>
+                    <h4>Cách thực hiện (4 bước):</h4>
+                    <ol>
+                        <li>Chọn một khái niệm cần học.</li>
+                        <li>Giảng dạy nó cho một đứa trẻ: Viết hoặc nói giải thích khái niệm đó bằng ngôn ngữ đơn giản, dễ hiểu nhất, tránh dùng thuật ngữ chuyên môn.</li>
+                        <li>Xác định lỗ hổng: Trong quá trình giải thích, bạn sẽ phát hiện những phần mình còn mơ hồ, chưa hiểu rõ. Quay lại tài liệu để nghiên cứu sâu hơn.</li>
+                        <li>Đơn giản hóa và sử dụng phép loại suy: Tinh chỉnh giải thích của bạn, sử dụng những hình ảnh, ví dụ, phép so sánh gần gũi.</li>
+                    </ol>
+                    <h4>Lợi ích:</h4>
+                    <p>Phương pháp này buộc bạn phải thực sự thấu hiểu bản chất của vấn đề, chứ không chỉ học thuộc lòng. Nó giúp kiến thức trở nên có hệ thống và dễ nhớ hơn.</p>
+                </div>
+            </article>
+            
+            <!-- Phương pháp 3 -->
+            <article class="method-card method-3">
+                <div class="method-header">
+                    <i class="fas fa-history"></i> 3. Spaced Repetition
+                </div>
+                <div class="method-content">
+                    <h3>Đánh Bại Đường Cong Lãng Quên</h3>
+                    <p>Dựa trên nghiên cứu về "Đường cong lãng quên" của Hermann Ebbinghaus, phương pháp này khai thác cơ chế ghi nhớ tự nhiên của não bộ: thông tin được ôn tập lại ngay trước khi chúng ta kịp quên sẽ được củng cố mạnh mẽ hơn.</p>
+                    <h4>Cách thực hiện:</h4>
+                    <p>Sử dụng các thẻ ghi nhớ (Flashcard) kỹ thuật số như Anki, Quizlet. Hệ thống sẽ tự động sắp xếp lịch ôn tập cho bạn:</p>
+                    <ul>
+                        <li>Lần 1: Ôn ngay sau khi học.</li>
+                        <li>Lần 2: Ôn sau 1 ngày.</li>
+                        <li>Lần 3: Ôn sau 3 ngày.</li>
+                        <li>Lần 4: Ôn sau 1 tuần, v.v... Khoảng cách sẽ dãn ra dần nếu bạn trả lời đúng.</li>
+                    </ul>
+                    <h4>Lợi ích:</h4>
+                    <p>Tối ưu hóa thời gian ôn tập, chuyển kiến thức từ trí nhớ ngắn hạn sang trí nhớ dài hạn một cách hiệu quả. Đặc biệt phù hợp với việc học từ vựng, công thức, định nghĩa.</p>
+                </div>
+            </article>
+            
+            <!-- Phương pháp 4 -->
+            <article class="method-card method-4">
+                <div class="method-header">
+                    <i class="fas fa-brain"></i> 4. Học Tập Chủ Động
+                </div>
+                <div class="method-content">
+                    <h3>Từ Bị Động Tiếp Nhận Sang Chủ Động Khám Phá</h3>
+                    <p>Khác với học thụ động (đọc lại, gạch chân, nghe giảng), học tập chủ động yêu cầu bạn tương tác sâu với tài liệu.</p>
+                    <h4>Các kỹ thuật phổ biến:</h4>
+                    <ul>
+                        <li>Tự đặt câu hỏi: Trong khi đọc, liên tục hỏi "Tại sao?", "Điều này liên hệ gì với kiến thức cũ?", "Ứng dụng của nó là gì?".</li>
+                        <li>Tóm tắt bằng sơ đồ tư duy (Mindmap): Vẽ ra các ý chính, ý phụ và mối liên hệ giữa chúng. Điều này giúp bạn thấy bức tranh tổng thể.</li>
+                        <li>Giải quyết vấn đề và làm bài tập thực hành: Áp dụng kiến thức ngay lập tức vào các tình huống cụ thể.</li>
+                        <li>Thảo luận nhóm: Giảng giải cho người khác, tranh luận và bảo vệ quan điểm của mình.</li>
+                    </ul>
+                    <h4>Lợi ích:</h4>
+                    <p>Kích thích tư duy phản biện, tăng cường khả năng kết nối thông tin và giúp ghi nhớ lâu hơn gấp nhiều lần so với học thụ động.</p>
+                </div>
+            </article>
+            
+            <!-- Phương pháp 5 -->
+            <article class="method-card method-5">
+                <div class="method-header">
+                    <i class="fas fa-book-reader"></i> 5. Phương Pháp SQ3R
+                </div>
+                <div class="method-content">
+                    <h3>Khuôn Mẫu Cho Việc Đọc Hiệu Quả</h3>
+                    <p>Đây là phương pháp kinh điển cho việc đọc sách giáo khoa, tài liệu học thuật.</p>
+                    <h4>Quy trình 5 bước:</h4>
+                    <ol>
+                        <li><strong>Survey (Khảo sát)</strong>: Lướt nhanh toàn bộ chương: tiêu đề, đề mục, hình ảnh, tóm tắt, câu hỏi cuối bài để nắm cấu trúc và ý chính.</li>
+                        <li><strong>Question (Đặt câu hỏi)</strong>: Biến các tiêu đề, đề mục thành câu hỏi. "Phương pháp SQ3R là gì?", "Lợi ích của bước Survey?".</li>
+                        <li><strong>Read (Đọc)</strong>: Đọc kỹ từng phần để tìm câu trả lời cho những câu hỏi đã đặt ra.</li>
+                        <li><strong>Recite (Thuật lại)</strong>: Sau mỗi phần, gấp sách lại và tự thuật lại (nói hoặc viết) những ý chính bằng ngôn ngữ của bạn.</li>
+                        <li><strong>Review (Ôn tập)</strong>: Sau khi đọc xong, xem lại toàn bộ các câu hỏi và câu trả lời, kiểm tra xem mình đã nhớ được bao nhiêu.</li>
+                    </ol>
+                    <h4>Lợi ích:</h4>
+                    <p>Biến việc đọc từ thụ động thành một quá trình tìm kiếm câu trả lời có chủ đích, giúp tiếp thu thông tin có chọn lọc và sâu sắc hơn.</p>
+                </div>
+            </article>
+            
+            <!-- Phương pháp 6 -->
+            <article class="method-card method-6">
+                <div class="method-header">
+                    <i class="fas fa-chart-pie"></i> 6. Nguyên Lý 80/20
+                </div>
+                <div class="method-content">
+                    <h3>Nguyên Lý Pareto Vào Học Tập</h3>
+                    <p>Nguyên lý này cho rằng: 80% kết quả đến từ 20% nguyên nhân. Trong học tập, điều này có nghĩa là 80% điểm số hoặc kiến thức quan trọng thường đến từ 20% nội dung cốt lõi.</p>
+                    <h4>Cách thực hiện:</h4>
+                    <ul>
+                        <li><strong>Xác định "20% tinh túy"</strong>: Phân tích đề cương, các bài kiểm tra cũ, hỏi giảng viên để tìm ra những chủ đề, khái niệm then chốt, thường xuyên xuất hiện và có trọng số cao.</li>
+                        <li><strong>Tập trung nguồn lực</strong>: Dành phần lớn thời gian và công sức để nắm vững 20% cốt lõi đó một cách thật sâu và chắc chắn.</li>
+                        <li><strong>Phân bổ thời gian hợp lý</strong>: 20% thời gian còn lại dành cho 80% nội dung ít quan trọng hơn.</li>
+                    </ul>
+                    <h4>Lợi ích:</h4>
+                    <p>Giúp bạn học thông minh hơn, không phải học nhiều hơn. Tránh lãng phí thời gian vào những chi tiết ít giá trị, tối đa hóa hiệu suất học tập, đặc biệt hiệu quả khi thời gian ôn thi có hạn.</p>
+                </div>
+            </article>
+        </div>
+        
+        <section class="conclusion">
+            <h2>Kết Luận: Hãy Trở Thành "Nhà Thực Nghiệm" Học Tập Của Chính Mình</h2>
+            <p>Không có phương pháp nào là "viên đạn bạc" phù hợp với tất cả mọi người và mọi hoàn cảnh. Bí quyết nằm ở việc linh hoạt kết hợp và điều chỉnh các phương pháp trên dựa trên môn học, phong cách cá nhân và mục tiêu cụ thể.</p>
+            <p>Hãy bắt đầu bằng việc thử nghiệm từng phương pháp trong 1-2 tuần, ghi chép lại cảm nhận và kết quả. Bạn có thể kết hợp Pomodoro để quản lý thời gian ôn tập, dùng Feynman để hiểu sâu lý thuyết phức tạp, và Spaced Repetition để ghi nhớ các dữ kiện quan trọng.</p>
+            <p>Học tập hiệu quả là một hành trình khám phá bản thân. Khi bạn tìm ra được "công thức" phù hợp, việc học sẽ không còn là gánh nặng, mà trở thành một hành trình chinh phục đầy hứng khởi và tự tin. Hãy bắt đầu ngay hôm nay để khai phóng tiềm năng trí tuệ vô hạn của chính mình!</p>
+        </section>
+    </main>
+    
+    <!-- Phần 3: Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-heart">
+                <i class="fas fa-heart"></i> Website được thực hiện bởi tổ 2 <i class="fas fa-heart"></i>
+            </div>
+            
+            <h3>THÀNH VIÊN</h3>
+            <div class="team-members">
+                <div class="member">Văn Đức</div>
+                <div class="member">Tạ Chung</div>
+                <div class="member">Hoàng Hà</div>
+                <div class="member">Quang Vinh</div>
+                <div class="member">Anh Thư</div>
+                <div class="member">Thu Hiền</div>
+                <div class="member">Đình Hải</div>
+                <div class="member">Minh Vinh</div>
+                <div class="member">Phạm Hoài</div>
+                <div class="member">Ngọc Ánh</div>
+                <div class="member">Gia Hưng</div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 - Website Các Phương Pháp Học Tập Hiệu Quả | Nhóm 2</p>
+                <p>Trang web này được tạo bằng HTML, CSS và có thể dễ dàng đưa lên GitHub Pages.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Thêm hiệu ứng scroll mượt mà cho các liên kết
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Thêm hiệu ứng khi cuộn trang
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.padding = '25px 0';
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
